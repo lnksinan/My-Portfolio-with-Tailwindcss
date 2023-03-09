@@ -1,0 +1,124 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="./css/style.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" integrity="sha512-SzlrxWUlpfuzQ+pcUCosxcglQRNAq/DZjVsC0lE40xsADsfeQoEypE+enwcOiGjk/bSuGGKHEyjSoQ1zVisanQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <title>Sinan Balkanlı | Portfolio</title>
+</head>
+<body>
+    <header class=" text-xl bg-[url('/public/images/welcome4.jpg')] opacity-[10] bg-cover  bg-center">
+    <div class=" h-24 text-white font-bold flex justify-end py-7 px-52 space-x-14 font-medium">
+    <a href="#" class="hover:border-b-2 border-blue-500 ">About</a>
+    <a href="#" class="hover:border-b-2 border-blue-500 ">Portfolio</a>
+    <a href="#" class="hover:border-b-2 border-blue-500 ">Projects</a> 
+    <a href="#" class="hover:border-b-2 border-blue-500 ">Contact</a>
+   </div>
+
+ 
+
+
+    <div class="  h-1/2 flex flex-col items-center justify-center lg:flex-row py-48 px-2 space-x-24" bis_skin_checked="1">
+      <img src="/public/images/prolife.jpg" class="rounded-full h-48" alt="">
+      <div class=" text-white lg:flex-row space-x-6 font-bold ">
+
+        <h1 class="text-4xl ">Hello I'm Sinan Balkanlı!</h1> 
+        <p class="text-2xl flex items-center justify-start py-6" >LET'S CONNECT</p>
+        <a href="#"><i class="fa-brands fa-twitter fa-2x text-white"></i></a>
+        <a href="#"><i class="fa-brands fa-linkedin-in fa-2x text-white"></i></a>
+        <a href="#"><i class="fa-brands fa-github fa-2x text-white"></i></a>
+  </div>
+  </div>
+</header>
+
+        
+        <!-- component -->
+<script defer src="https://unpkg.com/alpinejs@3.2.4/dist/cdn.min.js"></script>    
+    <div class="flex bg-gray-800 justify-around ">
+      <div class="left w-1/2 h-full px-24  ">
+        <h1 class="text-center text-blue-500 font-bold mt-10  mb-10   text-4xl">WHO AM I?</h1>
+        <h2 class="text-center font-bold mb-10 text-white    text-2xl">I'm Sinan BALKANLI, a Web Designer & Frontend Developer</h2>
+        <p class="text-center  mb-10  text-white  ">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aperiam magnam veniam officiis doloribus 
+          exercitationem tempore laborum voluptates debitis, dolorum aspernatur illum sequi asperiores? Quia 
+          tempora quaerat minima impedit nostrum. Officia provident laudantium corrupti quisquam magnam, esse 
+          velit ut! Facere itaque molestiae quibusdam ipsum optio? Harum architecto perspiciatis veniam optio tempore 
+          itaque iste, neque ratione at suscipit, est excepturi eaque cupiditate nisi asperiores modi blanditiis ex odio 
+          possimus. Porro eius provident culpa minima quae, quam dolore et nam tempora 
+          beatae asperiores quod explicabo ut suscipit qui odio ipsa ex sequi dolorem animi laboriosam vitae. Quisquam sed laudantium eius? Veritatis, debitis beatae.</p>
+          <div class="social flex items-center justify-center space-x-10">
+            <h5 class="uppercase text-white text-2xl">connect with me <i class="fa-sharp fa-solid fa-arrow-right"></i>  </h5>
+            
+            <div class="icons space-x-8">
+              <a href="#"><i class="fa-brands fa-twitter  text-white fa-2x"></i></a>
+              <a href="#"><i class="fa-brands fa-linkedin-in  text-white fa-2x"></i></a>
+              <a href="#"><i class="fa-brands fa-github  text-white fa-2x"></i></a>
+            </div>
+          </div>
+      </div>
+<main class="grid w-1/2 py-6 h-full text-gray-100   place-content-center">
+
+    <section x-data="skillDisplay"
+        class="px-24 py-24 items-center  bg-gray-800 rounded-xl md:grid md:grid-cols-2 md:gap-4 sm:space-y-0">
+        <div class="grid grid-cols-2 gap-6">
+            <template x-for="skill in skills">
+                <button x-text="skill.title"
+                    class="px-4 py-4 text-xl text-gray-100 transition bg-blue-600 rounded-md h-14 w-44 hover:bg-blue-700"
+                    :class="(currentSkill.title == skill.title) && 'font-bold ring-2 ring-gray-100'"
+                    @click="currentSkill = skill"></button>
+            </template>
+        </div>
+
+        <div class="flex items-center justify-center" x-data="{ circumference: 2 * 22 / 7 * 120 }">
+            <svg class="transform -rotate-90 w-72 h-72">
+                <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent"
+                    class="text-gray-700" />
+
+                <circle cx="145" cy="145" r="120" stroke="currentColor" stroke-width="30" fill="transparent"
+                    :stroke-dasharray="circumference"
+                    :stroke-dashoffset="circumference - currentSkill.percent / 100 * circumference"
+                    class="text-blue-500 " />
+            </svg>
+            <span class="absolute text-5xl" x-text="`${currentSkill.percent}%`"></span>
+    </section>
+</main>
+</div>
+
+
+</div>
+
+
+<script>
+    document.addEventListener('alpine:init', () => {
+        Alpine.data('skillDisplay', () => ({
+            skills: [{
+                    'title': 'HTML',
+                    'percent': '85',
+                },
+                {
+                    'title': 'CSS',
+                    'percent': '70',
+                },
+                {
+                    'title': 'Tailwind CSS',
+                    'percent': '70',
+                },
+                {
+                    'title': 'JavaScript',
+                    'percent': '20',
+                },
+               
+            ],
+            currentSkill: {
+                'title': 'HTML',
+                'percent': '95',
+            }
+        }));
+    });
+</script>
+
+  
+
+</body>
+</html>
